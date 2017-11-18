@@ -11,16 +11,33 @@
 |
 */
 
+//Drones
 
 Route::get('/drones', 'DroneController@getAll');
 Route::get('/drones/user/{id}', 'DroneController@getAllByUser');
 Route::get('/drone/{id}', 'DroneController@getById');
 
+
+//Usuários
 Route::get('/users', 'UserController@getAll');
 Route::get('/users/drone/{id}', 'UserController@getAllByDrone');
 Route::get('/user/{id}', 'UserController@getById');
+
+//AlugaDrones
+Route::get('/aluga_drone/{drone_id}/{user_id}', 'AlugaDroneController@alugaDrone');
+
+
+//Login
+Route::post('/login','UserController@doLogin'); 
+Route::get('/logout','UserController@doLogout');
+Route::post('/user/newlogin','UserController@createLogin');
+
 
 
 
 
 //Route::get('/drones', 'DroneController@index');
+
+//Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
