@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Drone;
+use App\User;
+
 class AlugaDroneController extends Controller
 {
     /**
@@ -14,7 +17,23 @@ class AlugaDroneController extends Controller
 
 
     public function alugaDrone($drone_id, $user_id) {
-        
+
+        $drone = Drone::find($drone_id);
+
+       // $user = User::find($user_id);
+
+        echo "<b>O {$drone->name} foi alugado por :<b></br>";
+
+       // echo $user->drone;
+
+        $drone->users()->attach($user_id);
+
+      //  $user->drones()->attach($drone_id);
+
+    }
+
+    public function getAllDronesAlugados() {
+
     }
 
 
