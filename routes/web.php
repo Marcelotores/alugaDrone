@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/drones', 'DroneController@getAll');
 Route::get('/drones/user/{id}', 'DroneController@getAllByUser');
 Route::get('/drone/{id}', 'DroneController@getById');
