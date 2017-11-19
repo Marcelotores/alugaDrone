@@ -28,6 +28,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__compartilhado_guard_auth_guard__ = __webpack_require__("../../../../../src/app/compartilhado/guard/auth.guard.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -40,9 +41,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] },
-    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_1__home_home_component__["a" /* HomeComponent */] },
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_1__home_home_component__["a" /* HomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_6__compartilhado_guard_auth_guard__["a" /* AuthGuard */]] },
     { path: 'cadastro', component: __WEBPACK_IMPORTED_MODULE_0__cadastro_cadastro_component__["a" /* CadastroComponent */] },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: '**', redirectTo: 'login', pathMatch: 'full' }
@@ -128,19 +130,21 @@ var AppComponent = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__cadastro_cadastro_module__ = __webpack_require__("../../../../../src/app/cadastro/cadastro.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home_module__ = __webpack_require__("../../../../../src/app/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nav_bar_nav_bar_module__ = __webpack_require__("../../../../../src/app/nav-bar/nav-bar.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login_module__ = __webpack_require__("../../../../../src/app/login/login.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_primeng_components_common_confirmationservice__ = __webpack_require__("../../../../primeng/components/common/confirmationservice.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_primeng_components_common_confirmationservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_primeng_components_common_confirmationservice__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_guard_auth_guard__ = __webpack_require__("../../../../../src/app/compartilhado/guard/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cadastro_cadastro_module__ = __webpack_require__("../../../../../src/app/cadastro/cadastro.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home_module__ = __webpack_require__("../../../../../src/app/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nav_bar_nav_bar_module__ = __webpack_require__("../../../../../src/app/nav-bar/nav-bar.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login_module__ = __webpack_require__("../../../../../src/app/login/login.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_primeng_components_common_confirmationservice__ = __webpack_require__("../../../../primeng/components/common/confirmationservice.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_primeng_components_common_confirmationservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_primeng_components_common_confirmationservice__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -159,27 +163,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_6__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_8__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["BrowserModule"],
-                __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_common__["CommonModule"],
-                __WEBPACK_IMPORTED_MODULE_10__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_1__home_home_module__["a" /* HomeModule */],
-                __WEBPACK_IMPORTED_MODULE_4__login_login_module__["a" /* LoginModule */],
-                __WEBPACK_IMPORTED_MODULE_0__cadastro_cadastro_module__["a" /* CadastroModule */],
-                __WEBPACK_IMPORTED_MODULE_3__nav_bar_nav_bar_module__["a" /* NavBarModule */],
-                __WEBPACK_IMPORTED_MODULE_8__angular_router__["RouterModule"]
+                __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__["BrowserModule"],
+                __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_common__["CommonModule"],
+                __WEBPACK_IMPORTED_MODULE_12__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_3__home_home_module__["a" /* HomeModule */],
+                __WEBPACK_IMPORTED_MODULE_6__login_login_module__["a" /* LoginModule */],
+                __WEBPACK_IMPORTED_MODULE_2__cadastro_cadastro_module__["a" /* CadastroModule */],
+                __WEBPACK_IMPORTED_MODULE_5__nav_bar_nav_bar_module__["a" /* NavBarModule */],
+                __WEBPACK_IMPORTED_MODULE_10__angular_router__["RouterModule"]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_11_primeng_components_common_confirmationservice__["ConfirmationService"]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_13_primeng_components_common_confirmationservice__["ConfirmationService"], __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_global_service__["a" /* GlobalService */], __WEBPACK_IMPORTED_MODULE_0__compartilhado_guard_auth_guard__["a" /* AuthGuard */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -197,7 +203,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".cadastro {\n    margin-left: 200px;\n    margin-right: 200px;\n    text-align: center;\n\n}\n\n.buttonForm {\n    text-align: center;\n}", ""]);
+exports.push([module.i, ".cadastro {\n    margin-left: 180px;\n    margin-right: 180px;\n\n}\n\n.buttonForm {\n    text-align: center;\n}", ""]);
 
 // exports
 
@@ -210,7 +216,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/cadastro/cadastro.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-growl [value]=\"msgs\"></p-growl>\n<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<div class=\"cadastro\">\n  <div class=\"ui-g\">\n    <div class=\"ui-g-12\">\n      <h3 class=\"title\">Informações pessoais</h3>\n    </div>\n  </div>\n\n  <form class=\"form\" [formGroup]=\"formulario\" (ngSubmit)=\"cadastrar()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-2\">\n          <label>Nome *: </label>\n        </div>\n        <div class=\"ui-g-6\">\n          <input pInputText type=\"text\" formControlName=\"name\">\n        </div>\n\n        <div class=\"ui-g-4\">\n          <app-error-component [showError]=\"checkFieldValidation('name')\" errorMsg=\"Nome é requerido\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-2\">\n          <label>Email *: </label>\n        </div>\n\n        <div class=\"ui-g-4\">\n          <input type=\"email\" pInputText formControlName=\"email\">\n        </div>\n\n        <div class=\"ui-g-5\">\n          <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['email'].valid && formulario.controls['email'].dirty\">\n            <i class=\"fa fa-close\"></i>\n            <span *ngIf=\"formulario.controls['email'].errors['required']\">Email requirido;</span>\n            <span *ngIf=\"formulario.controls['email'].errors['email']\">Digite um email válido;</span>\n          </div>\n        </div>\n\n      </div>\n\n      <div class=\"ui-g-6\">\n        <div class=\"ui-g-4\">\n          <label>Senha *: </label>\n        </div>\n        <div class=\"ui-g-6\">\n          <input type=\"password\" pPassword formControlName=\"password\" [feedback]=\"false\">\n        </div>\n      </div>\n\n      <div class=\"ui-g-6\">\n        <div class=\"ui-g-4\">\n          <label>Confirmar senha *: </label>\n        </div>\n        <div class=\"ui-g-6\">\n          <input type=\"password\" pPassword formControlName=\"password_conf\" [feedback]=\"false\">\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-grid ui-grid-resposive\">\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\"></div>\n            <div class=\"ui-grid-col-4\">\n              <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['password'].valid && \n                                (formulario.controls['password'].touched || \n                                formulario.controls['password'].dirty)\">\n                <i class=\"fa fa-close\"></i>\n                <span *ngIf=\"formulario.controls['password'].errors['required']\">\n                  Senha requerida;\n                </span>\n                <span *ngIf=\"formulario.controls['password'].errors['minlength']\">\n                  Senha deve ter pelo menos de 6 caracteres;\n                </span>\n                <span *ngIf=\"formulario.controls['password'].value != \n                          formulario.controls['password_conf'].value &&\n                          formulario.controls['password_conf'].value != null\">\n                  Senhas diferentes;\n                </span>\n              </div>\n            </div>\n\n            <div class=\"ui-grid-col-2\"></div>\n            <div class=\"ui-grid-col-4\">\n              <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['password_conf'].valid && \n                              (formulario.controls['password_conf'].touched || \n                              formulario.controls['password_conf'].dirty)\">\n                <i class=\"fa fa-close\"></i>\n                <span *ngIf=\"formulario.controls['password'].value != \n                                     formulario.controls['password_conf'].value &&\n                                     formulario.controls['password_conf'].value != null\">\n                  Senhas diferentes;\n                </span>\n              </div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ui-g-4\"></div>\n        <div class=\"ui-g-2\">\n          <button pButton type=\"button\" (click)=\"cancelar()\" icon=\"fa-close\" label=\"Cancelar\">\n          </button>\n        </div>\n        \n        <div class=\"ui-g-2\">\n          <button pButton type=\"submit\" icon=\"fa-check\" label=\"Salvar\">\n          </button>\n        </div>\n        <div class=\"ui-g-4\"></div>\n      </div>\n    </div>\n  </form>\n</div>"
+module.exports = "<p-growl [value]=\"msgs\"></p-growl>\n<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<div class=\"cadastro\">\n  <p-fieldset legend=\"Cadastro\">\n    <form class=\"form\" [formGroup]=\"formulario\" (ngSubmit)=\"cadastrar()\">\n      <div class=\"ui-g ui-fluid\">\n        <div class=\"ui-g-12\">\n          <div class=\"ui-g-2\">\n            <label>Nome *: </label>\n          </div>\n          <div class=\"ui-g-6\">\n            <input pInputText type=\"text\" formControlName=\"name\">\n          </div>\n\n          <div class=\"ui-g-4\">\n            <app-error-component [showError]=\"checkFieldValidation('name')\" errorMsg=\"Nome é requerido\">\n            </app-error-component>\n          </div>\n        </div>\n\n        <div class=\"ui-g-12\">\n          <div class=\"ui-g-2\">\n            <label>Email *: </label>\n          </div>\n\n          <div class=\"ui-g-4\">\n            <input type=\"email\" pInputText formControlName=\"email\">\n          </div>\n\n          <div class=\"ui-g-5\">\n            <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['email'].valid && formulario.controls['email'].dirty\">\n              <i class=\"fa fa-close\"></i>\n              <span *ngIf=\"formulario.controls['email'].errors['required']\">Email requirido;</span>\n              <span *ngIf=\"formulario.controls['email'].errors['email']\">Digite um email válido;</span>\n            </div>\n          </div>\n\n        </div>\n\n        <div class=\"ui-g-6\">\n          <div class=\"ui-g-4\">\n            <label>Senha *: </label>\n          </div>\n          <div class=\"ui-g-6\">\n            <input type=\"password\" pPassword formControlName=\"password\" [feedback]=\"false\">\n          </div>\n        </div>\n\n        <div class=\"ui-g-6\">\n          <div class=\"ui-g-4\">\n            <label>Confirmar senha *: </label>\n          </div>\n          <div class=\"ui-g-6\">\n            <input type=\"password\" pPassword formControlName=\"password_conf\" [feedback]=\"false\">\n          </div>\n        </div>\n\n        <div class=\"ui-g-12\">\n          <div class=\"ui-grid ui-grid-resposive\">\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\"></div>\n              <div class=\"ui-grid-col-4\">\n                <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['password'].valid && \n                                (formulario.controls['password'].touched || \n                                formulario.controls['password'].dirty)\">\n                  <i class=\"fa fa-close\"></i>\n                  <span *ngIf=\"formulario.controls['password'].errors['required']\">\n                    Senha requerida;\n                  </span>\n                  <span *ngIf=\"formulario.controls['password'].errors['minlength']\">\n                    Senha deve ter pelo menos de 6 caracteres;\n                  </span>\n                  <span *ngIf=\"formulario.controls['password'].value != \n                          formulario.controls['password_conf'].value &&\n                          formulario.controls['password_conf'].value != null\">\n                    Senhas diferentes;\n                  </span>\n                </div>\n              </div>\n\n              <div class=\"ui-grid-col-2\"></div>\n              <div class=\"ui-grid-col-4\">\n                <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['password_conf'].valid && \n                              (formulario.controls['password_conf'].touched || \n                              formulario.controls['password_conf'].dirty)\">\n                  <i class=\"fa fa-close\"></i>\n                  <span *ngIf=\"formulario.controls['password'].value != \n                                     formulario.controls['password_conf'].value &&\n                                     formulario.controls['password_conf'].value != null\">\n                    Senhas diferentes;\n                  </span>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"ui-g-4\"></div>\n          <div class=\"ui-g-2\">\n            <button pButton type=\"button\" (click)=\"cancelar()\" icon=\"fa-close\" label=\"Cancelar\">\n            </button>\n          </div>\n\n          <div class=\"ui-g-2\">\n            <button pButton type=\"submit\" icon=\"fa-check\" label=\"Salvar\">\n            </button>\n          </div>\n          <div class=\"ui-g-4\"></div>\n        </div>\n      </div>\n    </form>\n  </p-fieldset>\n</div>"
 
 /***/ }),
 
@@ -219,11 +225,12 @@ module.exports = "<p-growl [value]=\"msgs\"></p-growl>\n<p-confirmDialog acceptL
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CadastroComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_components_common_confirmationservice__ = __webpack_require__("../../../../primeng/components/common/confirmationservice.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_primeng_components_common_confirmationservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_primeng_components_common_confirmationservice__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__compartilhado_models_user_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/user.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_primeng_components_common_confirmationservice__ = __webpack_require__("../../../../primeng/components/common/confirmationservice.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_primeng_components_common_confirmationservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_primeng_components_common_confirmationservice__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compartilhado_models_user_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/user.model.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -237,19 +244,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CadastroComponent = (function () {
-    function CadastroComponent(formBuilder, confirmationService) {
+    function CadastroComponent(formBuilder, confirmationService, userService) {
         this.formBuilder = formBuilder;
         this.confirmationService = confirmationService;
+        this.userService = userService;
         this.msgs = [];
     }
     CadastroComponent.prototype.ngOnInit = function () {
         this.formulario = this.formBuilder.group({
-            name: [null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]],
-            email: [null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].email]],
-            password: [null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(6)]],
-            password_conf: [null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(6)]],
-            tipo_usuario: [2]
+            name: [null, [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required]],
+            email: [null, [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].email]],
+            password: [null, [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(6)]],
+            password_conf: [null, [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(6)]]
         });
     };
     CadastroComponent.prototype.checkFormValidations = function (formGroup) {
@@ -258,7 +266,7 @@ var CadastroComponent = (function () {
             console.log(field);
             var control = formGroup.get(field);
             control.markAsDirty();
-            if (control instanceof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]) {
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormGroup"]) {
                 _this.checkFormValidations(control);
             }
         });
@@ -276,12 +284,13 @@ var CadastroComponent = (function () {
             icon: 'fa fa-question-circle',
             accept: function () {
                 if (_this.formulario.valid) {
-                    var user = new __WEBPACK_IMPORTED_MODULE_3__compartilhado_models_user_model__["a" /* User */]();
+                    var user = new __WEBPACK_IMPORTED_MODULE_4__compartilhado_models_user_model__["a" /* User */]();
                     user.name = _this.formulario.get('name').value;
                     user.email = _this.formulario.get('email').value;
                     user.password = _this.formulario.get('password').value;
                     // usuario.tipo_usuario = this.formulario.get('tipo_usuario').value;
                     console.log(user);
+                    _this.userService.createUser(user);
                     _this.msgs = [];
                     _this.msgs = [{
                             severity: 'success',
@@ -316,13 +325,14 @@ var CadastroComponent = (function () {
         });
     };
     CadastroComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-cadastro',
             template: __webpack_require__("../../../../../src/app/cadastro/cadastro.component.html"),
             styles: [__webpack_require__("../../../../../src/app/cadastro/cadastro.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"],
-            __WEBPACK_IMPORTED_MODULE_2_primeng_components_common_confirmationservice__["ConfirmationService"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormBuilder"],
+            __WEBPACK_IMPORTED_MODULE_3_primeng_components_common_confirmationservice__["ConfirmationService"],
+            __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_user_service__["a" /* UserService */]])
     ], CadastroComponent);
     return CadastroComponent;
 }());
@@ -368,7 +378,8 @@ var CadastroModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_0_primeng_primeng__["InputTextModule"],
                 __WEBPACK_IMPORTED_MODULE_0_primeng_primeng__["GrowlModule"],
                 __WEBPACK_IMPORTED_MODULE_0_primeng_primeng__["PasswordModule"],
-                __WEBPACK_IMPORTED_MODULE_0_primeng_primeng__["ConfirmDialogModule"]
+                __WEBPACK_IMPORTED_MODULE_0_primeng_primeng__["ConfirmDialogModule"],
+                __WEBPACK_IMPORTED_MODULE_0_primeng_primeng__["FieldsetModule"]
             ],
             declarations: [__WEBPACK_IMPORTED_MODULE_3__cadastro_component__["a" /* CadastroComponent */]]
         })
@@ -566,6 +577,55 @@ var FormDebugComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/compartilhado/guard/auth.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AuthGuard = (function () {
+    function AuthGuard(globalService, usuarioService, router) {
+        this.globalService = globalService;
+        this.usuarioService = usuarioService;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function (route, state) {
+        var _this = this;
+        this.globalService.checkLogin.subscribe(function (login) { return _this.checkLogin = login; });
+        if (this.checkLogin) {
+            return true;
+        }
+        return false;
+    };
+    AuthGuard = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__services_global_service__["a" /* GlobalService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"]])
+    ], AuthGuard);
+    return AuthGuard;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/compartilhado/models/evento.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -596,6 +656,56 @@ var User = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/compartilhado/services/global.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GlobalService = (function () {
+    function GlobalService(userService) {
+        var _this = this;
+        this.userService = userService;
+        this.tipo_usuario = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](1);
+        this.usuarioTipo = this.tipo_usuario.asObservable();
+        this.logado = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](false);
+        this.checkLogin = this.logado.asObservable();
+        this.userService.checkLogin().then(function (user) {
+            _this.updateLogado(true);
+            _this.updateTipoUsuario(user.nivel);
+        });
+    }
+    GlobalService.prototype.updateTipoUsuario = function (user) {
+        this.tipo_usuario.next(user);
+    };
+    GlobalService.prototype.updateLogado = function (login) {
+        this.logado.next(login);
+    };
+    GlobalService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__user_service__["a" /* UserService */]])
+    ], GlobalService);
+    return GlobalService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/compartilhado/services/user.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -620,37 +730,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
+        this.baseURL = 'http://localhost:8000';
     }
     UserService.prototype.createUser = function (user) {
-        return this.http.post('http://sobralservicos.com.br/user', user)
+        return this.http.post(this.baseURL + "/user/newlogin", user)
             .toPromise();
     };
     UserService.prototype.login = function (user) {
-        return this.http.post('http://sobralservicos.com.br/login', user)
+        return this.http.post(this.baseURL + "/login", user)
             .toPromise()
             .then(function (response) { return response.json(); });
     };
     UserService.prototype.logout = function () {
-        return this.http.get('http://sobralservicos.com.br/logout')
+        return this.http.get(this.baseURL + "/logout")
             .toPromise();
     };
     UserService.prototype.checkLogin = function () {
-        return this.http.get('http://sobralservicos.com.br/check_login')
-            .toPromise()
-            .then(function (response) { return response.json(); });
-    };
-    UserService.prototype.getPrestadores = function () {
-        return this.http.get('http://sobralservicos.com.br/prestadores')
-            .toPromise()
-            .then(function (response) { return response.json(); });
-    };
-    UserService.prototype.getPrestador = function (id) {
-        return this.http.get("http://sobralservicos.com.br/prestador/" + id)
+        return this.http.get(this.baseURL + "/check_login")
             .toPromise()
             .then(function (response) { return response.json(); });
     };
     UserService.prototype.getUser = function (id) {
-        return this.http.get("http://sobralservicos.com.br/user/" + id)
+        return this.http.get(this.baseURL + "/user/" + id)
             .toPromise()
             .then(function (response) { return response.json(); });
     };
@@ -864,7 +965,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"loginExterno\">\n  <p-growl [value]=\"msgs\" sticky=\"sticky\"></p-growl>\n\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"login()\">\n    <p-panel header=\"Login\">\n      <div class=\"ui-g ui-fluid loginInterno\">\n        <div class=\"ui-g-12\">\n          <h3>Informe abaixo seus dados de acesso</h3>\n        </div>\n        <div class=\"ui-g-12\">\n          <div class=\"ui-g-12\">\n            <div class=\"ui-inputgroup\">\n              <span class=\"ui-inputgroup-addon\">\n                <i class=\"fa fa-user\"></i>\n              </span>\n              <input type=\"text\" pInputText formControlName=\"email\" placeholder=\"Email\">\n            </div>\n          </div>\n\n          <div class=\"ui-g-12\">\n            <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['email'].valid && formulario.controls['email'].dirty\">\n              <i class=\"fa fa-close\"></i>\n              <span *ngIf=\"formulario.controls['email'].errors['required']\">Email requirido;</span>\n              <span *ngIf=\"formulario.controls['email'].errors['email']\">Digite um email válido;</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ui-g-12\">\n          <div class=\"ui-g-12\">\n            <div class=\"ui-inputgroup\">\n              <span class=\"ui-inputgroup-addon\">\n                <i class=\"fa fa-key\"></i>\n              </span>\n              <input type=\"password\" formControlName=\"senha\" pInputText placeholder=\"Senha\">\n            </div>\n\n            <div class=\"ui-g-12\">\n              <app-error-component [showError]=\"checkFieldValidation('senha')\" errorMsg=\"Senha é requerida\">\n              </app-error-component>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ui-g-4\"></div>\n        <div class=\"ui-g-4\">\n          <button pButton type=\"submit\" label=\"Acessar\"></button>\n        </div>\n        <div class=\"ui-g-4\"></div>\n      </div>\n    </p-panel>\n  </form>\n  <!-- <app-form-debug [form]=\"formulario\"></app-form-debug> -->\n</div>"
+module.exports = "<div class=\"loginExterno\">\n  <p-growl [value]=\"msgs\" sticky=\"sticky\"></p-growl>\n\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"login()\">\n    <p-fieldset legend=\"Login\">\n      <div class=\"ui-g ui-fluid loginInterno\">\n        <div class=\"ui-g-12\">\n          <h3>Informe abaixo seus dados de acesso</h3>\n        </div>\n        <div class=\"ui-g-12\">\n          <div class=\"ui-g-12\">\n            <div class=\"ui-inputgroup\">\n              <span class=\"ui-inputgroup-addon\">\n                <i class=\"fa fa-user\"></i>\n              </span>\n              <input type=\"text\" pInputText formControlName=\"email\" placeholder=\"Email\">\n            </div>\n          </div>\n\n          <div class=\"ui-g-12\">\n            <div class=\"ui-message ui-messages-error ui-corner-all\" *ngIf=\"!formulario.controls['email'].valid && formulario.controls['email'].dirty\">\n              <i class=\"fa fa-close\"></i>\n              <span *ngIf=\"formulario.controls['email'].errors['required']\">Email requirido;</span>\n              <span *ngIf=\"formulario.controls['email'].errors['email']\">Digite um email válido;</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ui-g-12\">\n          <div class=\"ui-g-12\">\n            <div class=\"ui-inputgroup\">\n              <span class=\"ui-inputgroup-addon\">\n                <i class=\"fa fa-key\"></i>\n              </span>\n              <input type=\"password\" formControlName=\"senha\" pInputText placeholder=\"Senha\">\n            </div>\n\n            <div class=\"ui-g-12\">\n              <app-error-component [showError]=\"checkFieldValidation('senha')\" errorMsg=\"Senha é requerida\">\n              </app-error-component>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ui-g-4\"></div>\n        <div class=\"ui-g-4\">\n          <button pButton type=\"submit\" label=\"Acessar\"></button>\n        </div>\n        <div class=\"ui-g-4\"></div>\n      </div>\n    </p-fieldset>\n  </form>\n  <!-- <app-form-debug [form]=\"formulario\"></app-form-debug> -->\n</div>"
 
 /***/ }),
 
@@ -873,11 +974,13 @@ module.exports = "<div class=\"loginExterno\">\n  <p-growl [value]=\"msgs\" stic
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compartilhado_models_user_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/user.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__compartilhado_models_user_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/user.model.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -892,17 +995,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var LoginComponent = (function () {
-    function LoginComponent(formBuilder, http, router) {
+    function LoginComponent(formBuilder, http, router, userService, globalService) {
         this.formBuilder = formBuilder;
         this.http = http;
         this.router = router;
+        this.userService = userService;
+        this.globalService = globalService;
         this.msgs = [];
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.formulario = this.formBuilder.group({
-            email: [null, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required],
-            senha: [null, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required]
+            email: [null, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
+            senha: [null, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required]
         });
     };
     LoginComponent.prototype.checkFieldValidation = function (field) {
@@ -915,18 +1022,39 @@ var LoginComponent = (function () {
         Object.keys(formGroup.controls).forEach(function (field) {
             var control = formGroup.get(field);
             control.markAsDirty();
-            if (control instanceof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormGroup"]) {
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormGroup"]) {
                 _this.checkFormValidations(control);
             }
         });
     };
     LoginComponent.prototype.login = function () {
+        var _this = this;
         if (this.formulario.valid) {
-            var user = new __WEBPACK_IMPORTED_MODULE_4__compartilhado_models_user_model__["a" /* User */]();
+            var user = new __WEBPACK_IMPORTED_MODULE_6__compartilhado_models_user_model__["a" /* User */]();
             user.email = this.formulario.get('email').value;
             user.password = this.formulario.get('senha').value;
-            console.log(user);
-            this.formulario.reset();
+            this.userService.login(user).then(function (usuario) {
+                _this.usuario = usuario;
+                _this.globalService.updateLogado(true);
+                _this.globalService.updateTipoUsuario(usuario.nivel);
+                console.log(usuario);
+                _this.msgs = [];
+                _this.msgs = [{
+                        severity: 'success',
+                        summary: 'Login',
+                        detail: 'Login realizado'
+                    }];
+                _this.formulario.reset();
+                _this.router.navigate(['home']);
+            });
+            if (this.usuario === undefined) {
+                this.msgs = [];
+                this.msgs = [{
+                        severity: 'warn',
+                        summary: 'Login',
+                        detail: 'Email ou senha incorreta'
+                    }];
+            }
         }
         else {
             this.checkFormValidations(this.formulario);
@@ -934,19 +1062,21 @@ var LoginComponent = (function () {
             this.msgs = [{
                     severity: 'error',
                     summary: 'Login',
-                    detail: 'Dados incorretos, tente novamente'
+                    detail: 'Preencha os dados corretamente'
                 }];
         }
     };
     LoginComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["Component"])({
             selector: 'app-login',
             template: __webpack_require__("../../../../../src/app/login/login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormBuilder"],
-            __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_router__["Router"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormBuilder"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"],
+            __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__["a" /* GlobalService */]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -995,7 +1125,7 @@ var LoginModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_1_primeng_primeng__["InputTextModule"],
                 __WEBPACK_IMPORTED_MODULE_1_primeng_primeng__["FieldsetModule"],
                 __WEBPACK_IMPORTED_MODULE_1_primeng_primeng__["GrowlModule"],
-                __WEBPACK_IMPORTED_MODULE_1_primeng_primeng__["PanelModule"]
+                __WEBPACK_IMPORTED_MODULE_1_primeng_primeng__["FieldsetModule"]
             ],
             declarations: [__WEBPACK_IMPORTED_MODULE_5__login_component__["a" /* LoginComponent */]]
         })
@@ -1028,7 +1158,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/nav-bar/nav-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" [routerLink]=\"['/home']\">Worldrone</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\"\n    aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse justify-content-between\" id=\"navbarNav\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" [routerLink]=\"['/home']\">Home\n          <span class=\"sr-only\">(current)</span>\n        </a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" *ngIf=\"cliente\" href=\"#\">Novo evento</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" *ngIf=\"admin\" href=\"#\">Usuários</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [routerLink]=\"['/cadastro']\">Cadastro</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" *ngIf=\"logado\" (click)=\"sair()\">Sair do sistema</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [routerLink]=\"['/login']\" *ngIf=\"!logado\">Login</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<router-outlet></router-outlet>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" [routerLink]=\"['/home']\">Worldrone</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\"\n    aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse justify-content-between\" id=\"navbarNav\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" [routerLink]=\"['/home']\">Home\n          <span class=\"sr-only\">(current)</span>\n        </a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" *ngIf=\"cliente\" href=\"#\">Novo evento</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" *ngIf=\"admin\" href=\"#\">Usuários</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [routerLink]=\"['/cadastro']\">Cadastro</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" *ngIf=\"logado\" style=\"cursor: pointer\" (click)=\"sair()\">Sair do sistema</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [routerLink]=\"['/login']\" *ngIf=\"!logado\">Login</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -1037,8 +1167,10 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n 
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavBarComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1050,28 +1182,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var NavBarComponent = (function () {
-    function NavBarComponent(router) {
+    function NavBarComponent(globalService, userService, router) {
+        var _this = this;
+        this.globalService = globalService;
+        this.userService = userService;
         this.router = router;
-        this.cliente = false;
-        this.admin = true;
-        this.logado = false;
+        this.globalService.checkLogin.subscribe(function (dado) { return _this.logado = dado; });
+        this.globalService.usuarioTipo.subscribe(function (dado) {
+            if (dado === 1) {
+                _this.cliente = false;
+                _this.admin = true;
+            }
+            else if (dado === 2) {
+                _this.admin = false;
+                _this.cliente = true;
+            }
+        });
     }
     NavBarComponent.prototype.ngOnInit = function () {
     };
-    NavBarComponent.prototype.login = function () {
+    NavBarComponent.prototype.sair = function () {
+        this.userService.logout().then();
+        location.reload();
         this.router.navigate(['login']);
     };
-    NavBarComponent.prototype.sair = function () {
-        this.logado = false;
-    };
     NavBarComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-nav-bar',
             template: __webpack_require__("../../../../../src/app/nav-bar/nav-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/nav-bar/nav-bar.component.css"), __webpack_require__("../../../../bootstrap/dist/css/bootstrap.min.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__["a" /* GlobalService */],
+            __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"]])
     ], NavBarComponent);
     return NavBarComponent;
 }());
