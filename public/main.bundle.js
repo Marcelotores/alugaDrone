@@ -768,7 +768,7 @@ var UserService = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/home/home.component.css":
+/***/ "../../../../../src/app/home/admin/home-admin.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -776,7 +776,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".home {\n    margin-left: 150px;\n    margin-right: 150px;\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -786,18 +786,79 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/home/home.component.html":
+/***/ "../../../../../src/app/home/admin/home-admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-growl [value]=\"msgs\"></p-growl>\n\n<div class=\"home\">\n  <p-panel>\n    <p-header>\n      <div class=\"ui-helper-clearfix\">\n        <span  *ngIf=\"admin\" class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Eventos</span>\n        <span *ngIf=\"cliente\" class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n        <button pButton style=\"float:right\" label=\"Novo evento\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button>\n      </div>\n    </p-header>\n    The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding. His beloved\n    son Michael has just come home from the war, but does not intend to become part of his father's business. Through Michael's\n    life the nature of the family business becomes clear. The business of the family is just like the head of the family,\n    kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good\n    of the family.\n    <p-footer>\n      <button pButton type=\"button\" icon=\"fa-plus\" label=\"New\" class=\"ui-button-info\"></button>\n      <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button>\n    </p-footer>\n  </p-panel>\n</div>\n\n<p-dialog header=\"Novo evento\" [(visible)]=\"display\" modal=\"modal\" width=\"450\" [responsive]=\"true\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addEvento()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"nome\">Nome *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"nome\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('nome')\" errorMsg=\"Preencha com algum nome\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"preco\">Data *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"descricao\">Descrição *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <textarea pInputTextarea rows=\"3\" cols=\"30\" autoResize=\"autoResize\" formControlName=\"descricao\"></textarea>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('descricao')\" errorMsg=\"Preencha com alguma descrição\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
+module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n      <button pButton style=\"float:right\" label=\"Usuários\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button>\n    </div>\n  </p-header>\n\n  <h1>Todos os eventos</h1>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"New\" class=\"ui-button-info\"></button>\n    <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button>\n  </p-footer>\n</p-panel>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/home/home.component.ts":
+/***/ "../../../../../src/app/home/admin/home-admin.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeAdminComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HomeAdminComponent = (function () {
+    function HomeAdminComponent() {
+    }
+    HomeAdminComponent.prototype.ngOnInit = function () {
+    };
+    HomeAdminComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-home-admin',
+            template: __webpack_require__("../../../../../src/app/home/admin/home-admin.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/home/admin/home-admin.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeAdminComponent);
+    return HomeAdminComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/cliente/home-cliente.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/cliente/home-cliente.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n      <button pButton style=\"float:right\" label=\"Novo evento\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button>\n    </div>\n  </p-header>\n\n  <h1>Eventos do usuário</h1>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"New\" class=\"ui-button-info\"></button>\n    <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button>\n  </p-footer>\n</p-panel>\n\n<p-dialog header=\"Novo evento\" [(visible)]=\"display\" modal=\"modal\" width=\"450\" [responsive]=\"true\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addEvento()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"nome\">Nome *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"nome\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('nome')\" errorMsg=\"Preencha com algum nome\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"preco\">Data *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"descricao\">Descrição *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <textarea pInputTextarea rows=\"3\" cols=\"30\" autoResize=\"autoResize\" formControlName=\"descricao\"></textarea>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('descricao')\" errorMsg=\"Preencha com alguma descrição\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/cliente/home-cliente.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeClienteComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_models_evento__ = __webpack_require__("../../../../../src/app/compartilhado/models/evento.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
@@ -813,31 +874,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var HomeComponent = (function () {
-    function HomeComponent(formBuilder) {
+var HomeClienteComponent = (function () {
+    function HomeClienteComponent(formBuilder) {
         this.formBuilder = formBuilder;
         this.msgs = [];
-        this.logado = false;
-        this.admin = true;
-        this.cliente = false;
         this.display = false;
     }
-    HomeComponent.prototype.ngOnInit = function () {
+    HomeClienteComponent.prototype.ngOnInit = function () {
         this.formulario = this.formBuilder.group({
             nome: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
             data: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
             descricao: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]
         });
     };
-    HomeComponent.prototype.dialogEvento = function () {
+    HomeClienteComponent.prototype.dialogEvento = function () {
         this.display = true;
     };
-    HomeComponent.prototype.checkFieldValidation = function (field) {
+    HomeClienteComponent.prototype.checkFieldValidation = function (field) {
         return !this.formulario.get(field).valid &&
             (this.formulario.get(field).touched ||
                 this.formulario.get(field).dirty);
     };
-    HomeComponent.prototype.checkFormValidations = function (formGroup) {
+    HomeClienteComponent.prototype.checkFormValidations = function (formGroup) {
         var _this = this;
         Object.keys(formGroup.controls).forEach(function (field) {
             var control = formGroup.get(field);
@@ -847,11 +905,11 @@ var HomeComponent = (function () {
             }
         });
     };
-    HomeComponent.prototype.cancelar = function () {
+    HomeClienteComponent.prototype.cancelar = function () {
         this.display = false;
         this.formulario.reset();
     };
-    HomeComponent.prototype.addEvento = function () {
+    HomeClienteComponent.prototype.addEvento = function () {
         if (this.formulario.valid) {
             var evento = new __WEBPACK_IMPORTED_MODULE_0__compartilhado_models_evento__["a" /* Evento */]();
             evento.nome = this.formulario.get('nome').value;
@@ -877,13 +935,88 @@ var HomeComponent = (function () {
                 }];
         }
     };
-    HomeComponent = __decorate([
+    HomeClienteComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+            selector: 'app-home-cliente',
+            template: __webpack_require__("../../../../../src/app/home/cliente/home-cliente.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/home/cliente/home-cliente.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
+    ], HomeClienteComponent);
+    return HomeClienteComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".home {\n    margin-left: 150px;\n    margin-right: 150px;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p-growl [value]=\"msgs\"></p-growl>\n\n<div class=\"home\">\n  <app-home-cliente *ngIf=\"cliente\"></app-home-cliente>\n  <app-home-admin *ngIf=\"admin\"></app-home-admin>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/home.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HomeComponent = (function () {
+    function HomeComponent(globalService) {
+        var _this = this;
+        this.globalService = globalService;
+        this.globalService.usuarioTipo.subscribe(function (tipo) {
+            if (tipo === 1) {
+                _this.cliente = false;
+                _this.admin = true;
+            }
+            else if (tipo === 2) {
+                _this.admin = false;
+                _this.cliente = true;
+            }
+        });
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+    };
+    HomeComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-home',
             template: __webpack_require__("../../../../../src/app/home/home.component.html"),
             styles: [__webpack_require__("../../../../../src/app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__["a" /* GlobalService */]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -904,12 +1037,16 @@ var HomeComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__ = __webpack_require__("../../../../primeng/primeng.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_primeng_primeng__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cliente_home_cliente_component__ = __webpack_require__("../../../../../src/app/home/cliente/home-cliente.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__admin_home_admin_component__ = __webpack_require__("../../../../../src/app/home/admin/home-admin.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -936,7 +1073,7 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__["InputTextModule"],
                 __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__["InputMaskModule"]
             ],
-            declarations: [__WEBPACK_IMPORTED_MODULE_4__home_component__["a" /* HomeComponent */]]
+            declarations: [__WEBPACK_IMPORTED_MODULE_4__home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_6__cliente_home_cliente_component__["a" /* HomeClienteComponent */], __WEBPACK_IMPORTED_MODULE_7__admin_home_admin_component__["a" /* HomeAdminComponent */]]
         })
     ], HomeModule);
     return HomeModule;
@@ -1190,13 +1327,13 @@ var NavBarComponent = (function () {
         this.globalService = globalService;
         this.userService = userService;
         this.router = router;
-        this.globalService.checkLogin.subscribe(function (dado) { return _this.logado = dado; });
-        this.globalService.usuarioTipo.subscribe(function (dado) {
-            if (dado === 1) {
+        this.globalService.checkLogin.subscribe(function (login) { return _this.logado = login; });
+        this.globalService.usuarioTipo.subscribe(function (tipo) {
+            if (tipo === 1) {
                 _this.cliente = false;
                 _this.admin = true;
             }
-            else if (dado === 2) {
+            else if (tipo === 2) {
                 _this.admin = false;
                 _this.cliente = true;
             }
