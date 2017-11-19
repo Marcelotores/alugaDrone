@@ -687,6 +687,8 @@ var GlobalService = (function () {
         this.userService.checkLogin().then(function (user) {
             _this.updateLogado(true);
             _this.updateTipoUsuario(user.nivel);
+        }, function (err) {
+            console.log('User not connected');
         });
     }
     GlobalService.prototype.updateTipoUsuario = function (user) {
@@ -1037,7 +1039,6 @@ var LoginComponent = (function () {
                 _this.usuario = usuario;
                 _this.globalService.updateLogado(true);
                 _this.globalService.updateTipoUsuario(usuario.nivel);
-                console.log(usuario);
                 _this.msgs = [];
                 _this.msgs = [{
                         severity: 'success',
@@ -1046,15 +1047,14 @@ var LoginComponent = (function () {
                     }];
                 _this.formulario.reset();
                 _this.router.navigate(['home']);
-            });
-            if (this.usuario === undefined) {
-                this.msgs = [];
-                this.msgs = [{
+            }, function (err) {
+                _this.msgs = [];
+                _this.msgs = [{
                         severity: 'warn',
                         summary: 'Login',
-                        detail: 'Email ou senha incorreta'
+                        detail: 'Email ou senha incorretos'
                     }];
-            }
+            });
         }
         else {
             this.checkFormValidations(this.formulario);
