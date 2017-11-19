@@ -30,6 +30,7 @@ Route::get('/aluga_drone/{drone_id}/{user_id}', 'AlugaDroneController@alugaDrone
 //Login
 Route::post('/login','UserController@doLogin'); 
 Route::get('/logout','UserController@doLogout');
+Route::get('/check_login','UserController@checkLogin');
 Route::post('/user/newlogin','UserController@createLogin');
 
 

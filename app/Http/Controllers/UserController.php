@@ -43,6 +43,10 @@ class UserController extends Controller
 	 	Auth::logout();
 	 	return Auth::user(); //tem q ser nulo
 	}
+	
+	public function checkLogin(){
+	 	return Auth::user();
+	}
 
 
 	public function createLogin(Request $request){
