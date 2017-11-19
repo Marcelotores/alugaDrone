@@ -15,8 +15,8 @@ class AddCamposToDroneUsersTable extends Migration
     {
         Schema::table('drone_users', function (Blueprint $table) {
             $table->float('valor', 8, 2);
-            $table->date('date_inicio');
-            $table->date('data_final');
+            $table->string('data_inicio');
+            $table->string('data_final');
         });
     }
 

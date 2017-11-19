@@ -757,6 +757,11 @@ var UserService = (function () {
             .toPromise()
             .then(function (response) { return response.json(); });
     };
+    UserService.prototype.getUsers = function () {
+        return this.http.get(this.baseURL + "/users")
+            .toPromise()
+            .then(function (response) { return response.json(); });
+    };
     UserService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */]])
@@ -789,7 +794,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/admin/home-admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n      <button pButton style=\"float:right\" label=\"Usuários\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button>\n    </div>\n  </p-header>\n\n  <h1>Todos os eventos</h1>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"New\" class=\"ui-button-info\"></button>\n    <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button>\n  </p-footer>\n</p-panel>"
+module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n      <button pButton style=\"float:right\" label=\"Usuários\" icon=\"fa-eye\" (click)=\"showUsers()\"></button>\n    </div>\n  </p-header>\n\n  <app-show-users *ngIf=\"show_users\" [users]=\"users\"></app-show-users>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"New\" class=\"ui-button-info\"></button>\n    <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button>\n  </p-footer>\n</p-panel>"
 
 /***/ }),
 
@@ -798,7 +803,8 @@ module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeAdminComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -809,18 +815,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeAdminComponent = (function () {
-    function HomeAdminComponent() {
+    function HomeAdminComponent(userService) {
+        var _this = this;
+        this.userService = userService;
+        this.show_users = false;
+        this.userService.getUsers().then(function (users) {
+            _this.users = [];
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].nivel === 2) {
+                    _this.users.push(users[i]);
+                }
+            }
+        });
     }
     HomeAdminComponent.prototype.ngOnInit = function () {
     };
+    HomeAdminComponent.prototype.showUsers = function () {
+        this.show_users = !this.show_users;
+    };
     HomeAdminComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'app-home-admin',
             template: __webpack_require__("../../../../../src/app/home/admin/home-admin.component.html"),
             styles: [__webpack_require__("../../../../../src/app/home/admin/home-admin.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__compartilhado_services_user_service__["a" /* UserService */]])
     ], HomeAdminComponent);
     return HomeAdminComponent;
 }());
@@ -1039,12 +1060,14 @@ var HomeComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_primeng_primeng__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__cliente_home_cliente_component__ = __webpack_require__("../../../../../src/app/home/cliente/home-cliente.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__admin_home_admin_component__ = __webpack_require__("../../../../../src/app/home/admin/home-admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__show_users_show_users_component__ = __webpack_require__("../../../../../src/app/home/show-users/show-users.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1073,10 +1096,75 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__["InputTextModule"],
                 __WEBPACK_IMPORTED_MODULE_5_primeng_primeng__["InputMaskModule"]
             ],
-            declarations: [__WEBPACK_IMPORTED_MODULE_4__home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_6__cliente_home_cliente_component__["a" /* HomeClienteComponent */], __WEBPACK_IMPORTED_MODULE_7__admin_home_admin_component__["a" /* HomeAdminComponent */]]
+            declarations: [__WEBPACK_IMPORTED_MODULE_4__home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_6__cliente_home_cliente_component__["a" /* HomeClienteComponent */], __WEBPACK_IMPORTED_MODULE_7__admin_home_admin_component__["a" /* HomeAdminComponent */], __WEBPACK_IMPORTED_MODULE_8__show_users_show_users_component__["a" /* ShowUsersComponent */]]
         })
     ], HomeModule);
     return HomeModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/show-users/show-users.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/show-users/show-users.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngFor=\"let user of users\">\n  <div>\n    {{ user.name }}\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/show-users/show-users.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShowUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ShowUsersComponent = (function () {
+    function ShowUsersComponent() {
+    }
+    ShowUsersComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], ShowUsersComponent.prototype, "users", void 0);
+    ShowUsersComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-show-users',
+            template: __webpack_require__("../../../../../src/app/home/show-users/show-users.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/home/show-users/show-users.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ShowUsersComponent);
+    return ShowUsersComponent;
 }());
 
 
