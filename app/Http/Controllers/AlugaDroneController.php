@@ -33,8 +33,9 @@ class AlugaDroneController extends Controller
 
     }
 
-    public function getAllDronesAlugados() {
-
+    public function getDronesAlugadosByUser($user_id) {
+      $drones = AlugaDrone::where('user_id', $user_id)->get();
+      return $drones;
     }
 
 

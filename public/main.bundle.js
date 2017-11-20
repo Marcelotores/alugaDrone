@@ -772,6 +772,11 @@ var AlugaDroneService = (function () {
             .toPromise()
             .then(function (response) { return response.json(); });
     };
+    AlugaDroneService.prototype.getAlugaDronesByUser = function (user_id) {
+        return this.http.get(this.baseURL + "/aluga_drones/user/" + user_id)
+            .toPromise()
+            .then(function (response) { return response.json(); });
+    };
     AlugaDroneService.prototype.getAllAlugaDrone = function () {
         return this.http.get(this.baseURL + "/aluga_drones")
             .toPromise()
@@ -1185,7 +1190,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/cliente/home-cliente.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n      <!-- <button pButton style=\"float:right\" label=\"Novo evento\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button> -->\n    </div>\n  </p-header>\n\n  <h1>Eventos do usuário</h1>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"Alugar novo drone\" (click)=\"dialogAluguel()\"></button>\n    <!-- <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button> -->\n  </p-footer>\n</p-panel>\n\n<p-dialog header=\"Alugar novo drone\" [(visible)]=\"displayAluguel\" modal=\"modal\" width=\"450\" [responsive]=\"true\" [contentStyle]=\"{'overflow':'visible'}\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addAluguel()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"drone\">Drone *:</label>\n        </div>\n      \n        <div class=\"ui-g-9\">\n          <p-dropdown [options]=\"drones\" formControlName=\"drone\" placeholder=\"Selecione um\"></p-dropdown>\n        </div>\n      \n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('drone')\" errorMsg=\"Selecione algum drone\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"valor\">Valor *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"valor\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('valor')\" errorMsg=\"Preencha com algum valor\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"data_inicio\">Data início *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data_inicio\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data_inicio')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"data_final\">Data final *:</label>\n        </div>\n      \n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data_final\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n      \n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data_final')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
+module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" \n        style=\"font-size:16px;display:inline-block;margin-top:2px\">\n          Área do cliente\n      </span>\n\n      <!-- <button pButton style=\"float:right\" label=\"Novo evento\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button> -->\n    </div>\n  </p-header>\n\n  <h3 *ngIf=\"!alugaDrones\">Nenhum aluguel realizado</h3>\n  <app-show-aluga-drone *ngIf=\"alugaDrones\" [alugaDrones]=\"alugaDrones\"></app-show-aluga-drone>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"Alugar novo drone\" (click)=\"dialogAluguel()\"></button>\n    <!-- <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button> -->\n  </p-footer>\n</p-panel>\n\n<p-dialog header=\"Alugar novo drone\" [(visible)]=\"displayAluguel\" modal=\"modal\" width=\"450\" [responsive]=\"true\" [contentStyle]=\"{'overflow':'visible'}\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addAluguel()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"drone\">Drone *:</label>\n        </div>\n      \n        <div class=\"ui-g-9\">\n          <p-dropdown [options]=\"drones\" formControlName=\"drone\" placeholder=\"Selecione um\"></p-dropdown>\n        </div>\n      \n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('drone')\" errorMsg=\"Selecione algum drone\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"valor\">Valor *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"valor\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('valor')\" errorMsg=\"Preencha com algum valor\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"data_inicio\">Data início *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data_inicio\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data_inicio')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"data_final\">Data final *:</label>\n        </div>\n      \n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data_final\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n      \n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data_final')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
 
 /***/ }),
 
@@ -1218,15 +1223,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomeClienteComponent = (function () {
-    function HomeClienteComponent(formBuilder, droneService, alugaDrone, userService, globalService) {
+    function HomeClienteComponent(formBuilder, droneService, alugaDroneService, userService, globalService) {
         var _this = this;
         this.formBuilder = formBuilder;
         this.droneService = droneService;
-        this.alugaDrone = alugaDrone;
+        this.alugaDroneService = alugaDroneService;
         this.userService = userService;
         this.globalService = globalService;
         this.msgs = [];
         this.displayAluguel = false;
+        this.userService.checkLogin().then(function (user) {
+            _this.alugaDroneService.getAlugaDronesByUser(user.id).then(function (alugaDrones) {
+                _this.alugaDrones = alugaDrones;
+                var _loop_1 = function (i) {
+                    var id_drone = alugaDrones[i].drone_id;
+                    _this.droneService.getDrone(id_drone).then(function (drone) { return _this.alugaDrones[i].drone_name = drone.name; });
+                    var id_user = alugaDrones[i].user_id;
+                    _this.userService.getUser(id_user).then(function (usuario) { return _this.alugaDrones[i].user_name = usuario.name; });
+                };
+                for (var i = 0; i < alugaDrones.length; i++) {
+                    _loop_1(i);
+                }
+                console.log(_this.alugaDrones);
+            });
+        });
         this.droneService.getAllDrones().then(function (drones) {
             drones = drones.sort(function (a, b) {
                 return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
@@ -1282,7 +1302,7 @@ var HomeClienteComponent = (function () {
             alugaDrone_1.data_inicio = this.formulario.get('data_inicio').value;
             alugaDrone_1.data_final = this.formulario.get('data_final').value;
             console.log(alugaDrone_1);
-            this.alugaDrone.createAlugaDrone(alugaDrone_1);
+            this.alugaDroneService.createAlugaDrone(alugaDrone_1);
             this.displayAluguel = false;
             this.formulario.reset();
             this.msgs = [];
