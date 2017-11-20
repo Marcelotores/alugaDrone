@@ -40,7 +40,7 @@ class AlugaDroneController extends Controller
 
     public function index()
     {
-        //
+        return AlugaDrone::all();
     }
 
     /**

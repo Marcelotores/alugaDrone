@@ -28,6 +28,7 @@ Route::delete('/user/{id}', 'UserController@destroy');
 
 //AlugaDrones
 Route::post('/aluga_drone', 'AlugaDroneController@create');
+Route::get('/aluga_drones', 'AlugaDroneController@index');
 Route::delete('/aluga_drone/{drone_id}/{user_id}', 'AlugaDroneController@destroy');
 Route::get('/aluga_drone/{drone_id}/{user_id}', 'AlugaDroneController@show');
 

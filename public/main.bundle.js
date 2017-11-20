@@ -459,12 +459,14 @@ var CadastroModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__error_component_error_component__ = __webpack_require__("../../../../../src/app/compartilhado/error-component/error.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_aluga_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/aluga-drone.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -491,7 +493,7 @@ var CompartilhadoModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7__error_component_error_component__["a" /* ErrorComponent */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__services_drone_service__["a" /* DroneService */], __WEBPACK_IMPORTED_MODULE_0_primeng_components_common_confirmationservice__["ConfirmationService"]
+                __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__services_drone_service__["a" /* DroneService */], __WEBPACK_IMPORTED_MODULE_8__services_aluga_drone_service__["a" /* AlugaDroneService */], __WEBPACK_IMPORTED_MODULE_0_primeng_components_common_confirmationservice__["ConfirmationService"]
             ]
         })
     ], CompartilhadoModule);
@@ -686,6 +688,21 @@ var AuthGuard = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/compartilhado/models/aluga-drone.model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlugaDrone; });
+var AlugaDrone = (function () {
+    function AlugaDrone() {
+    }
+    return AlugaDrone;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/compartilhado/models/drone.model.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -701,21 +718,6 @@ var Drone = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/compartilhado/models/evento.model.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Evento; });
-var Evento = (function () {
-    function Evento() {
-    }
-    return Evento;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/compartilhado/models/user.model.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -725,6 +727,61 @@ var User = (function () {
     function User() {
     }
     return User;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/compartilhado/services/aluga-drone.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AlugaDroneService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AlugaDroneService = (function () {
+    function AlugaDroneService(http) {
+        this.http = http;
+        this.baseURL = 'http://localhost:8000';
+    }
+    AlugaDroneService.prototype.createAlugaDrone = function (alugaDrone) {
+        return this.http.post(this.baseURL + "/aluga_drone", alugaDrone)
+            .toPromise();
+    };
+    AlugaDroneService.prototype.deleteAlugaDrone = function (drone_id, user_id) {
+        return this.http.delete(this.baseURL + "/aluga_drone/" + drone_id + "/" + user_id)
+            .toPromise();
+    };
+    AlugaDroneService.prototype.getAlugaDrone = function (drone_id, user_id) {
+        return this.http.get(this.baseURL + "/aluga_drone/" + drone_id + "/" + user_id)
+            .toPromise()
+            .then(function (response) { return response.json(); });
+    };
+    AlugaDroneService.prototype.getAllAlugaDrone = function () {
+        return this.http.get(this.baseURL + "/aluga_drones")
+            .toPromise()
+            .then(function (response) { return response.json(); });
+    };
+    AlugaDroneService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */]])
+    ], AlugaDroneService);
+    return AlugaDroneService;
 }());
 
 
@@ -819,22 +876,28 @@ var GlobalService = (function () {
     function GlobalService(userService) {
         var _this = this;
         this.userService = userService;
-        this.tipo_usuario = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](1);
-        this.usuarioTipo = this.tipo_usuario.asObservable();
         this.logado = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](false);
         this.checkLogin = this.logado.asObservable();
+        this.tipo_usuario = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](2);
+        this.usuarioTipo = this.tipo_usuario.asObservable();
+        this.id_usuario = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](1);
+        this.usuarioId = this.id_usuario.asObservable();
         this.userService.checkLogin().then(function (user) {
             _this.updateLogado(true);
             _this.updateTipoUsuario(user.nivel);
+            _this.updateId(user.id);
         }, function (err) {
             console.log('User not connected');
         });
     }
-    GlobalService.prototype.updateTipoUsuario = function (user) {
-        this.tipo_usuario.next(user);
-    };
     GlobalService.prototype.updateLogado = function (login) {
         this.logado.next(login);
+    };
+    GlobalService.prototype.updateTipoUsuario = function (tipo) {
+        this.tipo_usuario.next(tipo);
+    };
+    GlobalService.prototype.updateId = function (id) {
+        this.id_usuario.next(id);
     };
     GlobalService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
@@ -937,7 +1000,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/admin/home-admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">\n        Área do administrador\n      </span>\n\n      \n      \n      <button pButton style=\"float:right\" label=\"Drone alugados\" icon=\"fa-eye\" (click)=\"showDrones()\"></button>\n      <button pButton style=\"float:right\" label=\"Drones\" icon=\"fa-eye\" (click)=\"showDrones()\"></button>\n      <button pButton style=\"float:right\" label=\"Usuários\" icon=\"fa-eye\" (click)=\"showUsers()\"></button>\n    </div>\n  </p-header>\n\n  <app-show-users *ngIf=\"show_users\" [users]=\"users\"></app-show-users>\n  <app-show-drones *ngIf=\"show_drones\" [drones]=\"drones\"></app-show-drones>\n\n  <p-footer>\n    <button *ngIf=\"show_drones\" pButton type=\"button\" icon=\"fa-plus\" label=\"Novo Drone\" (click)=\"dialogDrone()\" class=\"ui-button-info\">\n    </button>\n    <button *ngIf=\"show_users\" pButton type=\"button\" icon=\"fa-plus\" label=\"Novo usuário\" [routerLink]=\"['/cadastro']\" class=\"ui-button-info\">\n    </button>\n    <!-- <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button> -->\n  </p-footer>\n</p-panel>\n\n<p-dialog header=\"Adicionar drone\" [(visible)]=\"displayDrone\" modal=\"modal\" width=\"450\" [responsive]=\"true\" [contentStyle]=\"{'overflow':'visible'}\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addDrone()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"name\">Nome *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"name\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('name')\" errorMsg=\"Preencha com algum nome\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"description\">Descrição *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <textarea pInputTextarea rows=\"3\" cols=\"26\" autoResize=\"autoResize\" formControlName=\"description\"></textarea>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('description')\" errorMsg=\"Preencha com alguma descrição\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
+module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">\n        Área do administrador\n      </span>\n\n      \n      \n      <button pButton style=\"float:right\" label=\"Drone alugados\" icon=\"fa-eye\" (click)=\"showAlugaDrones()\"></button>\n      <button pButton style=\"float:right\" label=\"Drones\" icon=\"fa-eye\" (click)=\"showDrones()\"></button>\n      <button pButton style=\"float:right\" label=\"Usuários\" icon=\"fa-eye\" (click)=\"showUsers()\"></button>\n    </div>\n  </p-header>\n\n  <app-show-users *ngIf=\"show_users\" [users]=\"users\"></app-show-users>\n  <app-show-drones *ngIf=\"show_drones\" [drones]=\"drones\"></app-show-drones>\n  <app-show-aluga-drone *ngIf=\"show_alugaDrones\" [alugaDrones]=\"alugaDrones\"></app-show-aluga-drone>\n\n  <p-footer>\n    <button *ngIf=\"show_drones\" pButton type=\"button\" icon=\"fa-plus\" label=\"Novo Drone\" (click)=\"dialogDrone()\">\n    </button>\n    <button *ngIf=\"show_users\" pButton type=\"button\" icon=\"fa-plus\" label=\"Novo usuário\" [routerLink]=\"['/cadastro']\">\n    </button>\n    <!-- <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button> -->\n  </p-footer>\n</p-panel>\n\n<p-dialog header=\"Adicionar drone\" [(visible)]=\"displayDrone\" modal=\"modal\" width=\"450\" [responsive]=\"true\" [contentStyle]=\"{'overflow':'visible'}\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addDrone()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"name\">Nome *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"name\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('name')\" errorMsg=\"Preencha com algum nome\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"description\">Descrição *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <textarea pInputTextarea rows=\"3\" cols=\"26\" autoResize=\"autoResize\" formControlName=\"description\"></textarea>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('description')\" errorMsg=\"Preencha com alguma descrição\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
 
 /***/ }),
 
@@ -946,11 +1009,12 @@ module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeAdminComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compartilhado_models_drone_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/drone.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__compartilhado_services_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/drone.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_aluga_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/aluga-drone.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__compartilhado_models_drone_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/drone.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/drone.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -965,11 +1029,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomeAdminComponent = (function () {
-    function HomeAdminComponent(userService, droneService, formBuilder) {
+    function HomeAdminComponent(userService, droneService, alugaDroneService, formBuilder) {
         var _this = this;
         this.userService = userService;
         this.droneService = droneService;
+        this.alugaDroneService = alugaDroneService;
         this.formBuilder = formBuilder;
         this.msgs = [];
         this.show_users = true;
@@ -986,11 +1052,24 @@ var HomeAdminComponent = (function () {
         this.droneService.getAllDrones().then(function (drones) {
             _this.drones = drones;
         });
+        this.alugaDroneService.getAllAlugaDrone().then(function (alugaDrones) {
+            _this.alugaDrones = alugaDrones;
+            var _loop_1 = function (i) {
+                var id_drone = alugaDrones[i].drone_id;
+                _this.droneService.getDrone(id_drone).then(function (drone) { return _this.alugaDrones[i].drone_name = drone.name; });
+                var id_user = alugaDrones[i].user_id;
+                _this.userService.getUser(id_user).then(function (user) { return _this.alugaDrones[i].user_name = user.name; });
+            };
+            for (var i = 0; i < alugaDrones.length; i++) {
+                _loop_1(i);
+            }
+            console.log(_this.alugaDrones);
+        });
     }
     HomeAdminComponent.prototype.ngOnInit = function () {
         this.formulario = this.formBuilder.group({
-            name: [null, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required],
-            description: [null, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required]
+            name: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            description: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]
         });
     };
     /* onSelect(event) {
@@ -1004,10 +1083,17 @@ var HomeAdminComponent = (function () {
     HomeAdminComponent.prototype.showUsers = function () {
         this.show_users = true;
         this.show_drones = false;
+        this.show_alugaDrones = false;
     };
     HomeAdminComponent.prototype.showDrones = function () {
         this.show_users = false;
         this.show_drones = true;
+        this.show_alugaDrones = false;
+    };
+    HomeAdminComponent.prototype.showAlugaDrones = function () {
+        this.show_users = false;
+        this.show_drones = false;
+        this.show_alugaDrones = true;
     };
     HomeAdminComponent.prototype.dialogDrone = function () {
         this.displayDrone = true;
@@ -1022,7 +1108,7 @@ var HomeAdminComponent = (function () {
         Object.keys(formGroup.controls).forEach(function (field) {
             var control = formGroup.get(field);
             control.markAsDirty();
-            if (control instanceof __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormGroup"]) {
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]) {
                 _this.checkFormValidations(control);
             }
         });
@@ -1034,7 +1120,7 @@ var HomeAdminComponent = (function () {
     HomeAdminComponent.prototype.addDrone = function () {
         var _this = this;
         if (this.formulario.valid) {
-            var drone = new __WEBPACK_IMPORTED_MODULE_1__compartilhado_models_drone_model__["a" /* Drone */]();
+            var drone = new __WEBPACK_IMPORTED_MODULE_2__compartilhado_models_drone_model__["a" /* Drone */]();
             drone.name = this.formulario.get('name').value;
             drone.description = this.formulario.get('description').value;
             console.log(drone);
@@ -1061,14 +1147,15 @@ var HomeAdminComponent = (function () {
         }
     };
     HomeAdminComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["Component"])({
             selector: 'app-home-admin',
             template: __webpack_require__("../../../../../src/app/home/admin/home-admin.component.html"),
             styles: [__webpack_require__("../../../../../src/app/home/admin/home-admin.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__compartilhado_services_user_service__["a" /* UserService */],
-            __WEBPACK_IMPORTED_MODULE_2__compartilhado_services_drone_service__["a" /* DroneService */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormBuilder"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__compartilhado_services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_drone_service__["a" /* DroneService */],
+            __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_aluga_drone_service__["a" /* AlugaDroneService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
     ], HomeAdminComponent);
     return HomeAdminComponent;
 }());
@@ -1098,7 +1185,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/cliente/home-cliente.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n      <button pButton style=\"float:right\" label=\"Novo evento\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button>\n    </div>\n  </p-header>\n\n  <h1>Eventos do usuário</h1>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"Alugar novo drone\" class=\"ui-button-info\"></button>\n    <!-- <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button> -->\n  </p-footer>\n</p-panel>\n\n<p-dialog header=\"Novo evento\" [(visible)]=\"display\" modal=\"modal\" width=\"450\" [responsive]=\"true\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addEvento()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"nome\">Nome *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"nome\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('nome')\" errorMsg=\"Preencha com algum nome\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"preco\">Data *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"descricao\">Descrição *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <textarea pInputTextarea rows=\"3\" cols=\"30\" autoResize=\"autoResize\" formControlName=\"descricao\"></textarea>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('descricao')\" errorMsg=\"Preencha com alguma descrição\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
+module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\">\n      <span class=\"ui-panel-title\" style=\"font-size:16px;display:inline-block;margin-top:2px\">Meus eventos</span>\n\n      <!-- <button pButton style=\"float:right\" label=\"Novo evento\" icon=\"fa-plus\" (click)=\"dialogEvento()\"></button> -->\n    </div>\n  </p-header>\n\n  <h1>Eventos do usuário</h1>\n\n  <p-footer>\n    <button pButton type=\"button\" icon=\"fa-plus\" label=\"Alugar novo drone\" (click)=\"dialogAluguel()\"></button>\n    <!-- <button pButton type=\"button\" icon=\"fa-list\" label=\"View\" class=\"ui-button-success\"></button> -->\n  </p-footer>\n</p-panel>\n\n<p-dialog header=\"Alugar novo drone\" [(visible)]=\"displayAluguel\" modal=\"modal\" width=\"450\" [responsive]=\"true\" [contentStyle]=\"{'overflow':'visible'}\">\n  <form [formGroup]=\"formulario\" (ngSubmit)=\"addAluguel()\">\n    <div class=\"ui-g ui-fluid\">\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"drone\">Drone *:</label>\n        </div>\n      \n        <div class=\"ui-g-9\">\n          <p-dropdown [options]=\"drones\" formControlName=\"drone\" placeholder=\"Selecione um\"></p-dropdown>\n        </div>\n      \n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('drone')\" errorMsg=\"Selecione algum drone\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"valor\">Valor *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <input pInputText formControlName=\"valor\" />\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('valor')\" errorMsg=\"Preencha com algum valor\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"data_inicio\">Data início *:</label>\n        </div>\n\n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data_inicio\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n\n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data_inicio')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n\n      <div class=\"ui-g-12\">\n        <div class=\"ui-g-3\">\n          <label for=\"data_final\">Data final *:</label>\n        </div>\n      \n        <div class=\"ui-g-9\">\n          <p-inputMask mask=\"99/99/9999\" formControlName=\"data_final\" placeholder=\"18/11/2017\" slotChar=\"dd/mm/aaaa\"></p-inputMask>\n        </div>\n      \n        <div class=\"ui-g-offset-3 ui-g-9\">\n          <app-error-component [showError]=\"checkFieldValidation('data_final')\" errorMsg=\"Preencha com alguma data\">\n          </app-error-component>\n        </div>\n      </div>\n    </div>\n    <p-footer>\n      <div class=\"ui-dialog-buttonpane ui-helper-clearfix\">\n        <button type=\"button\" pButton icon=\"fa-close\" (click)=\"cancelar()\" label=\"Cancelar\"></button>\n        <button type=\"submit\" pButton icon=\"fa-check\" label=\"Adicionar\"></button>\n      </div>\n    </p-footer>\n  </form>\n</p-dialog>"
 
 /***/ }),
 
@@ -1107,9 +1194,13 @@ module.exports = "<p-panel>\n  <p-header>\n    <div class=\"ui-helper-clearfix\"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeClienteComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_models_evento_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/evento.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_aluga_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/aluga-drone.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__compartilhado_models_aluga_drone_model__ = __webpack_require__("../../../../../src/app/compartilhado/models/aluga-drone.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compartilhado_services_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/drone.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1122,21 +1213,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 var HomeClienteComponent = (function () {
-    function HomeClienteComponent(formBuilder) {
+    function HomeClienteComponent(formBuilder, droneService, alugaDrone, userService, globalService) {
+        var _this = this;
         this.formBuilder = formBuilder;
+        this.droneService = droneService;
+        this.alugaDrone = alugaDrone;
+        this.userService = userService;
+        this.globalService = globalService;
         this.msgs = [];
-        this.display = false;
+        this.displayAluguel = false;
+        this.droneService.getAllDrones().then(function (drones) {
+            drones = drones.sort(function (a, b) {
+                return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
+            });
+            _this.drones = [];
+            for (var i = 0; i < drones.length; i++) {
+                _this.drones.push({
+                    label: drones[i].name,
+                    value: {
+                        id: drones[i].id,
+                        name: drones[i].name
+                    }
+                });
+            }
+        });
     }
     HomeClienteComponent.prototype.ngOnInit = function () {
         this.formulario = this.formBuilder.group({
-            nome: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
-            data: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
-            descricao: [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]
+            drone: [null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required],
+            valor: [null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required],
+            data_inicio: [null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required],
+            data_final: [null, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required],
         });
     };
-    HomeClienteComponent.prototype.dialogEvento = function () {
-        this.display = true;
+    HomeClienteComponent.prototype.dialogAluguel = function () {
+        this.displayAluguel = true;
     };
     HomeClienteComponent.prototype.checkFieldValidation = function (field) {
         return !this.formulario.get(field).valid &&
@@ -1148,23 +1264,26 @@ var HomeClienteComponent = (function () {
         Object.keys(formGroup.controls).forEach(function (field) {
             var control = formGroup.get(field);
             control.markAsDirty();
-            if (control instanceof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]) {
+            if (control instanceof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormGroup"]) {
                 _this.checkFormValidations(control);
             }
         });
     };
     HomeClienteComponent.prototype.cancelar = function () {
-        this.display = false;
+        this.displayAluguel = false;
         this.formulario.reset();
     };
-    HomeClienteComponent.prototype.addEvento = function () {
+    HomeClienteComponent.prototype.addAluguel = function () {
         if (this.formulario.valid) {
-            var evento = new __WEBPACK_IMPORTED_MODULE_0__compartilhado_models_evento_model__["a" /* Evento */]();
-            evento.nome = this.formulario.get('nome').value;
-            evento.data = this.formulario.get('data').value;
-            evento.descricao = this.formulario.get('descricao').value;
-            console.log(evento);
-            this.display = false;
+            var alugaDrone_1 = new __WEBPACK_IMPORTED_MODULE_2__compartilhado_models_aluga_drone_model__["a" /* AlugaDrone */]();
+            this.globalService.usuarioId.subscribe(function (id) { return alugaDrone_1.user_id = id; });
+            alugaDrone_1.drone_id = this.formulario.get('drone').value.id;
+            alugaDrone_1.valor = this.formulario.get('valor').value;
+            alugaDrone_1.data_inicio = this.formulario.get('data_inicio').value;
+            alugaDrone_1.data_final = this.formulario.get('data_final').value;
+            console.log(alugaDrone_1);
+            this.alugaDrone.createAlugaDrone(alugaDrone_1);
+            this.displayAluguel = false;
             this.formulario.reset();
             this.msgs = [];
             this.msgs = [{
@@ -1184,12 +1303,16 @@ var HomeClienteComponent = (function () {
         }
     };
     HomeClienteComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_6__angular_core__["Component"])({
             selector: 'app-home-cliente',
             template: __webpack_require__("../../../../../src/app/home/cliente/home-cliente.component.html"),
             styles: [__webpack_require__("../../../../../src/app/home/cliente/home-cliente.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormBuilder"],
+            __WEBPACK_IMPORTED_MODULE_4__compartilhado_services_drone_service__["a" /* DroneService */],
+            __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_aluga_drone_service__["a" /* AlugaDroneService */],
+            __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_global_service__["a" /* GlobalService */]])
     ], HomeClienteComponent);
     return HomeClienteComponent;
 }());
@@ -1330,12 +1453,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__admin_home_admin_component__ = __webpack_require__("../../../../../src/app/home/admin/home-admin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__show_users_show_users_component__ = __webpack_require__("../../../../../src/app/home/show-users/show-users.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__show_drones_show_drones_component__ = __webpack_require__("../../../../../src/app/home/show-drones/show-drones.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__show_aluga_drone_show_aluga_drone_component__ = __webpack_require__("../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1369,12 +1494,78 @@ var HomeModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_6_primeng_primeng__["InputMaskModule"],
                 __WEBPACK_IMPORTED_MODULE_6_primeng_primeng__["FileUploadModule"],
                 __WEBPACK_IMPORTED_MODULE_6_primeng_primeng__["DataListModule"],
-                __WEBPACK_IMPORTED_MODULE_6_primeng_primeng__["ConfirmDialogModule"]
+                __WEBPACK_IMPORTED_MODULE_6_primeng_primeng__["ConfirmDialogModule"],
+                __WEBPACK_IMPORTED_MODULE_6_primeng_primeng__["DropdownModule"]
             ],
-            declarations: [__WEBPACK_IMPORTED_MODULE_5__home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_7__cliente_home_cliente_component__["a" /* HomeClienteComponent */], __WEBPACK_IMPORTED_MODULE_8__admin_home_admin_component__["a" /* HomeAdminComponent */], __WEBPACK_IMPORTED_MODULE_9__show_users_show_users_component__["a" /* ShowUsersComponent */], __WEBPACK_IMPORTED_MODULE_10__show_drones_show_drones_component__["a" /* ShowDronesComponent */]]
+            declarations: [__WEBPACK_IMPORTED_MODULE_5__home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_7__cliente_home_cliente_component__["a" /* HomeClienteComponent */], __WEBPACK_IMPORTED_MODULE_8__admin_home_admin_component__["a" /* HomeAdminComponent */], __WEBPACK_IMPORTED_MODULE_9__show_users_show_users_component__["a" /* ShowUsersComponent */], __WEBPACK_IMPORTED_MODULE_10__show_drones_show_drones_component__["a" /* ShowDronesComponent */], __WEBPACK_IMPORTED_MODULE_11__show_aluga_drone_show_aluga_drone_component__["a" /* ShowAlugaDroneComponent */]]
         })
     ], HomeModule);
     return HomeModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<p-dataList [value]=\"alugaDrones\" [paginator]=\"true\" [rows]=\"5\">\n  <p-header>\n    Drones alugados\n  </p-header>\n  <ng-template let-alugadrone pTemplate=\"item\">\n    <div class=\"ui-g ui-fluid alugadrone-item\">\n      <div class=\"ui-g-10 alugadrone-details\">\n        <div class=\"ui-g\">\n          <div class=\"ui-g-2 ui-sm-6\">Usuário: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.user_name }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Drone: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.drone_name }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Valor do aluguel: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.valor }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Data início: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.data_inicio }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Data Final: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.data_final }}</div>\n        </div>\n      </div>\n      <div class=\"ui-g-2\">\n        <button pButton type=\"button\" icon=\"fa-trash\" label=\"Remover\" class=\"ui-button-danger\">\n        </button>\n      </div>\n    </div>\n  </ng-template>\n</p-dataList>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShowAlugaDroneComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ShowAlugaDroneComponent = (function () {
+    function ShowAlugaDroneComponent() {
+    }
+    ShowAlugaDroneComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], ShowAlugaDroneComponent.prototype, "alugaDrones", void 0);
+    ShowAlugaDroneComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-show-aluga-drone',
+            template: __webpack_require__("../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ShowAlugaDroneComponent);
+    return ShowAlugaDroneComponent;
 }());
 
 
@@ -1402,7 +1593,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/show-drones/show-drones.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<p-dataList [value]=\"drones\" [paginator]=\"true\" [rows]=\"5\">\n  <p-header>\n    Lista de drones\n  </p-header>\n  <ng-template let-drone pTemplate=\"item\">\n    <div class=\"ui-g ui-fluid drone-item\">\n      <div class=\"ui-g-10 drone-details\">\n        <div class=\"ui-g\">\n          <div class=\"ui-g-2 ui-sm-6\">Nome: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{drone.name}}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Descrição: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{drone.description}}</div>\n        </div>\n      </div>\n      <div class=\"ui-g-2\">\n        <button pButton type=\"button\" icon=\"fa-trash\" label=\"Remover\" (click)=\"removerDrone(drone.id)\" class=\"ui-button-danger\">\n        </button>\n      </div>\n    </div>\n  </ng-template>\n  <div></div>\n</p-dataList>"
+module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<p-dataList [value]=\"drones\" [paginator]=\"true\" [rows]=\"5\">\n  <p-header>\n    Drones cadastrados\n  </p-header>\n  <ng-template let-drone pTemplate=\"item\">\n    <div class=\"ui-g ui-fluid drone-item\">\n      <div class=\"ui-g-10 drone-details\">\n        <div class=\"ui-g\">\n          <div class=\"ui-g-2 ui-sm-6\">Nome: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{drone.name}}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Descrição: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{drone.description}}</div>\n        </div>\n      </div>\n      <div class=\"ui-g-2\">\n        <button pButton type=\"button\" icon=\"fa-trash\" label=\"Remover\" (click)=\"removerDrone(drone.id)\" class=\"ui-button-danger\">\n        </button>\n      </div>\n    </div>\n  </ng-template>\n</p-dataList>"
 
 /***/ }),
 
@@ -1507,7 +1698,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/show-users/show-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<p-dataList [value]=\"users\" [paginator]=\"true\" [rows]=\"5\">\n  <p-header>\n    Lista de usuários\n  </p-header>\n  <ng-template let-user pTemplate=\"item\">\n    <div class=\"ui-g ui-fluid user-item\">\n      <div class=\"ui-g-10 user-details\">\n        <div class=\"ui-g\">\n          <div class=\"ui-g-2 ui-sm-6\">Nome: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{user.name}}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Email: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{user.email}}</div>\n        </div>\n      </div>\n      <div class=\"ui-g-2\">\n        <button pButton type=\"button\" icon=\"fa-trash\" label=\"Remover\" (click)=\"removerUsuario(user.id)\" class=\"ui-button-danger\">\n        </button>\n      </div>\n    </div>\n  </ng-template>\n</p-dataList>"
+module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<p-dataList [value]=\"users\" [paginator]=\"true\" [rows]=\"5\">\n  <p-header>\n    Usuários cadastrados\n  </p-header>\n  <ng-template let-user pTemplate=\"item\">\n    <div class=\"ui-g ui-fluid user-item\">\n      <div class=\"ui-g-10 user-details\">\n        <div class=\"ui-g\">\n          <div class=\"ui-g-2 ui-sm-6\">Nome: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{user.name}}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Email: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{user.email}}</div>\n        </div>\n      </div>\n      <div class=\"ui-g-2\">\n        <button pButton type=\"button\" icon=\"fa-trash\" label=\"Remover\" (click)=\"removerUsuario(user.id)\" class=\"ui-button-danger\">\n        </button>\n      </div>\n    </div>\n  </ng-template>\n</p-dataList>"
 
 /***/ }),
 
@@ -1723,6 +1914,7 @@ var LoginComponent = (function () {
                 _this.usuario = usuario;
                 _this.globalService.updateLogado(true);
                 _this.globalService.updateTipoUsuario(usuario.nivel);
+                _this.globalService.updateId(usuario.id);
                 _this.msgs = [];
                 _this.msgs = [{
                         severity: 'success',
