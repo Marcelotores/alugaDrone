@@ -24,6 +24,7 @@ Route::get('/drones/user/{id}', 'DroneController@getAllByUser');
 Route::get('/users', 'UserController@getAll');
 Route::get('/users/drone/{id}', 'UserController@getAllByDrone');
 Route::get('/user/{id}', 'UserController@getById');
+Route::delete('/user/{id}', 'UserController@destroy');
 
 //AlugaDrones
 Route::post('/aluga_drone', 'AlugaDroneController@create');

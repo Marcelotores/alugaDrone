@@ -23,6 +23,10 @@ class CreateDroneUsersTable extends Migration
             $table->foreign('user_id')->
             references('id')->on('users');
 
+            $table->float('valor', 8, 2);
+            $table->string('data_inicio');
+            $table->string('data_final');
+
             $table->timestamps();
         });
     }
