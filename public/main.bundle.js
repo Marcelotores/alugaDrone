@@ -144,19 +144,24 @@ var AppComponent = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_guard_auth_guard__ = __webpack_require__("../../../../../src/app/compartilhado/guard/auth.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cadastro_cadastro_module__ = __webpack_require__("../../../../../src/app/cadastro/cadastro.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home_module__ = __webpack_require__("../../../../../src/app/home/home.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nav_bar_nav_bar_module__ = __webpack_require__("../../../../../src/app/nav-bar/nav-bar.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login_module__ = __webpack_require__("../../../../../src/app/login/login.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_aluga_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/aluga-drone.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__compartilhado_guard_auth_guard__ = __webpack_require__("../../../../../src/app/compartilhado/guard/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cadastro_cadastro_module__ = __webpack_require__("../../../../../src/app/cadastro/cadastro.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home_module__ = __webpack_require__("../../../../../src/app/home/home.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__nav_bar_nav_bar_module__ = __webpack_require__("../../../../../src/app/nav-bar/nav-bar.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login_module__ = __webpack_require__("../../../../../src/app/login/login.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_primeng_components_common_confirmationservice__ = __webpack_require__("../../../../primeng/components/common/confirmationservice.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_primeng_components_common_confirmationservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_primeng_components_common_confirmationservice__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__compartilhado_services_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/drone.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -176,27 +181,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_8__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_10__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__["BrowserModule"],
-                __WEBPACK_IMPORTED_MODULE_11__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_common__["CommonModule"],
-                __WEBPACK_IMPORTED_MODULE_12__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_3__home_home_module__["HomeModule"],
-                __WEBPACK_IMPORTED_MODULE_6__login_login_module__["LoginModule"],
-                __WEBPACK_IMPORTED_MODULE_2__cadastro_cadastro_module__["CadastroModule"],
-                __WEBPACK_IMPORTED_MODULE_5__nav_bar_nav_bar_module__["a" /* NavBarModule */],
-                __WEBPACK_IMPORTED_MODULE_10__angular_router__["RouterModule"]
+                __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser__["BrowserModule"],
+                __WEBPACK_IMPORTED_MODULE_13__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_common__["CommonModule"],
+                __WEBPACK_IMPORTED_MODULE_14__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_5__home_home_module__["HomeModule"],
+                __WEBPACK_IMPORTED_MODULE_8__login_login_module__["LoginModule"],
+                __WEBPACK_IMPORTED_MODULE_4__cadastro_cadastro_module__["CadastroModule"],
+                __WEBPACK_IMPORTED_MODULE_7__nav_bar_nav_bar_module__["a" /* NavBarModule */],
+                __WEBPACK_IMPORTED_MODULE_12__angular_router__["RouterModule"]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__compartilhado_services_global_service__["a" /* GlobalService */], __WEBPACK_IMPORTED_MODULE_0__compartilhado_guard_auth_guard__["a" /* AuthGuard */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_global_service__["a" /* GlobalService */],
+                __WEBPACK_IMPORTED_MODULE_2__compartilhado_guard_auth_guard__["a" /* AuthGuard */],
+                __WEBPACK_IMPORTED_MODULE_1__compartilhado_services_user_service__["a" /* UserService */],
+                __WEBPACK_IMPORTED_MODULE_16__compartilhado_services_drone_service__["a" /* DroneService */],
+                __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_aluga_drone_service__["a" /* AlugaDroneService */],
+                __WEBPACK_IMPORTED_MODULE_15_primeng_components_common_confirmationservice__["ConfirmationService"]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -450,16 +466,11 @@ var CadastroModule = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompartilhadoModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_primeng_components_common_confirmationservice__ = __webpack_require__("../../../../primeng/components/common/confirmationservice.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_primeng_components_common_confirmationservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_primeng_components_common_confirmationservice__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/drone.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__form_debug_form_debug_component__ = __webpack_require__("../../../../../src/app/compartilhado/form-debug/form-debug.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__error_component_error_component__ = __webpack_require__("../../../../../src/app/compartilhado/error-component/error.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_aluga_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/aluga-drone.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__form_debug_form_debug_component__ = __webpack_require__("../../../../../src/app/compartilhado/form-debug/form-debug.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__error_component_error_component__ = __webpack_require__("../../../../../src/app/compartilhado/error-component/error.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -471,29 +482,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-
-
 var CompartilhadoModule = (function () {
     function CompartilhadoModule() {
     }
     CompartilhadoModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["NgModule"])({
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             imports: [
-                __WEBPACK_IMPORTED_MODULE_6__angular_common__["CommonModule"],
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* HttpModule */]
+                __WEBPACK_IMPORTED_MODULE_3__angular_common__["CommonModule"],
+                __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* HttpModule */]
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__form_debug_form_debug_component__["a" /* FormDebugComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__error_component_error_component__["a" /* ErrorComponent */]
+                __WEBPACK_IMPORTED_MODULE_1__form_debug_form_debug_component__["a" /* FormDebugComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__error_component_error_component__["a" /* ErrorComponent */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_4__form_debug_form_debug_component__["a" /* FormDebugComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__error_component_error_component__["a" /* ErrorComponent */]
-            ],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__services_drone_service__["a" /* DroneService */], __WEBPACK_IMPORTED_MODULE_8__services_aluga_drone_service__["a" /* AlugaDroneService */], __WEBPACK_IMPORTED_MODULE_0_primeng_components_common_confirmationservice__["ConfirmationService"]
+                __WEBPACK_IMPORTED_MODULE_1__form_debug_form_debug_component__["a" /* FormDebugComponent */],
+                __WEBPACK_IMPORTED_MODULE_4__error_component_error_component__["a" /* ErrorComponent */]
             ]
         })
     ], CompartilhadoModule);
@@ -666,14 +670,30 @@ var AuthGuard = (function () {
         this.globalService = globalService;
         this.userService = userService;
         this.router = router;
-        this.globalService.checkLogin.subscribe(function (login) { return _this.checkLogin = login; });
+        this.userService.checkLogin().then(function (user) {
+            _this.globalService.updateLogado(true);
+            _this.globalService.updateTipoUsuario(user.nivel);
+            _this.globalService.updateId(user.id);
+            _this.checkLogin = true;
+            console.log('User connected!');
+            _this.router.navigate(['home']);
+        }, function (err) {
+            _this.checkLogin = false;
+            _this.globalService.updateLogado(false);
+            _this.globalService.updateTipoUsuario(0);
+            _this.globalService.updateId(0);
+            console.log('User not connected...');
+            _this.router.navigate(['login']);
+        });
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         if (this.checkLogin) {
             return true;
         }
-        // this.router.navigate(['login']);
-        return false;
+        else if (this.checkLogin === false) {
+            this.router.navigate(['login']);
+            return false;
+        }
     };
     AuthGuard = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
@@ -862,9 +882,10 @@ var DroneService = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -877,22 +898,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var GlobalService = (function () {
-    function GlobalService(userService) {
+    function GlobalService(userService, router) {
         var _this = this;
         this.userService = userService;
-        this.logado = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](false);
+        this.router = router;
+        this.logado = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](false);
         this.checkLogin = this.logado.asObservable();
-        this.tipo_usuario = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](2);
+        this.tipo_usuario = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](0);
         this.usuarioTipo = this.tipo_usuario.asObservable();
-        this.id_usuario = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](1);
+        this.id_usuario = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */](0);
         this.usuarioId = this.id_usuario.asObservable();
         this.userService.checkLogin().then(function (user) {
             _this.updateLogado(true);
             _this.updateTipoUsuario(user.nivel);
             _this.updateId(user.id);
         }, function (err) {
+            _this.updateLogado(false);
+            _this.updateTipoUsuario(0);
+            _this.updateId(0);
             console.log('User not connected');
+            _this.router.navigate(['login']);
         });
     }
     GlobalService.prototype.updateLogado = function (login) {
@@ -905,8 +932,9 @@ var GlobalService = (function () {
         this.id_usuario.next(id);
     };
     GlobalService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__user_service__["a" /* UserService */]])
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_router__["Router"]])
     ], GlobalService);
     return GlobalService;
 }());
@@ -1233,6 +1261,7 @@ var HomeClienteComponent = (function () {
         this.msgs = [];
         this.displayAluguel = false;
         this.userService.checkLogin().then(function (user) {
+            _this.user_id = user.id;
             _this.alugaDroneService.getAlugaDronesByUser(user.id).then(function (alugaDrones) {
                 _this.alugaDrones = alugaDrones;
                 var _loop_1 = function (i) {
@@ -1294,6 +1323,7 @@ var HomeClienteComponent = (function () {
         this.formulario.reset();
     };
     HomeClienteComponent.prototype.addAluguel = function () {
+        var _this = this;
         if (this.formulario.valid) {
             var alugaDrone_1 = new __WEBPACK_IMPORTED_MODULE_2__compartilhado_models_aluga_drone_model__["a" /* AlugaDrone */]();
             this.globalService.usuarioId.subscribe(function (id) { return alugaDrone_1.user_id = id; });
@@ -1302,22 +1332,34 @@ var HomeClienteComponent = (function () {
             alugaDrone_1.data_inicio = this.formulario.get('data_inicio').value;
             alugaDrone_1.data_final = this.formulario.get('data_final').value;
             console.log(alugaDrone_1);
-            this.alugaDroneService.createAlugaDrone(alugaDrone_1);
-            this.displayAluguel = false;
-            this.formulario.reset();
-            this.msgs = [];
-            this.msgs = [{
-                    severity: 'success',
-                    summary: 'Concluído',
-                    detail: 'Evento adicionado'
-                }];
+            this.alugaDroneService.createAlugaDrone(alugaDrone_1).then(function () {
+                _this.msgs = [];
+                _this.msgs = [{
+                        severity: 'success',
+                        summary: 'Concluído',
+                        detail: 'Aluguel solicitado'
+                    }];
+                _this.displayAluguel = false;
+                _this.formulario.reset();
+                location.reload();
+            }, function (err) {
+                _this.msgs = [];
+                _this.msgs = [{
+                        severity: 'error',
+                        summary: 'Erro',
+                        detail: 'Não foi possível realizar o aluguel'
+                    }];
+                _this.displayAluguel = false;
+                _this.formulario.reset();
+                location.reload();
+            });
         }
         else {
             this.checkFormValidations(this.formulario);
             this.msgs = [];
             this.msgs = [{
                     severity: 'error',
-                    summary: 'Erro ao adicionar',
+                    summary: 'Erro ao solicitar',
                     detail: 'Preencha os dados corretamente'
                 }];
         }
@@ -1548,7 +1590,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<p-dataList [value]=\"alugaDrones\" [paginator]=\"true\" [rows]=\"5\">\n  <p-header>\n    Drones alugados\n  </p-header>\n  <ng-template let-alugadrone pTemplate=\"item\">\n    <div class=\"ui-g ui-fluid alugadrone-item\">\n      <div class=\"ui-g-10 alugadrone-details\">\n        <div class=\"ui-g\">\n          <div class=\"ui-g-2 ui-sm-6\">Usuário: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.user_name }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Drone: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.drone_name }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Valor do aluguel: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.valor }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Data início: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.data_inicio }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Data Final: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.data_final }}</div>\n        </div>\n      </div>\n      <div class=\"ui-g-2\">\n        <button pButton type=\"button\" icon=\"fa-trash\" label=\"Remover\" class=\"ui-button-danger\">\n        </button>\n      </div>\n    </div>\n  </ng-template>\n</p-dataList>"
+module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-confirmDialog>\n\n<p-dataList [value]=\"alugaDrones\" [paginator]=\"true\" [rows]=\"5\">\n  <p-header>\n    Drones alugados\n  </p-header>\n  <ng-template let-alugadrone pTemplate=\"item\">\n    <div class=\"ui-g ui-fluid alugadrone-item\">\n      <div class=\"ui-g-10 alugadrone-details\">\n        <div class=\"ui-g\">\n          <div class=\"ui-g-2 ui-sm-6\">Usuário: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.user_name }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Drone: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.drone_name }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Valor do aluguel: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.valor }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Data início: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.data_inicio }}</div>\n\n          <div class=\"ui-g-2 ui-sm-6\">Data Final: </div>\n          <div class=\"ui-g-10 ui-sm-6\">{{ alugadrone.data_final }}</div>\n        </div>\n      </div>\n      <div class=\"ui-g-2\">\n        <button pButton type=\"button\" icon=\"fa-trash\" label=\"Remover\" \n          (click)=\"removerAlugaDrone(alugadrone.drone_id, alugadrone.user_id)\" class=\"ui-button-danger\">\n        </button>\n      </div>\n    </div>\n  </ng-template>\n</p-dataList>"
 
 /***/ }),
 
@@ -1557,7 +1599,11 @@ module.exports = "<p-confirmDialog acceptLabel=\"Sim\" rejectLabel=\"Não\"></p-
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShowAlugaDroneComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/global.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_primeng_components_common_confirmationservice__ = __webpack_require__("../../../../primeng/components/common/confirmationservice.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_primeng_components_common_confirmationservice___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_primeng_components_common_confirmationservice__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_aluga_drone_service__ = __webpack_require__("../../../../../src/app/compartilhado/services/aluga-drone.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1568,22 +1614,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var ShowAlugaDroneComponent = (function () {
-    function ShowAlugaDroneComponent() {
+    function ShowAlugaDroneComponent(confirmationService, alugaDroneService, globalService) {
+        var _this = this;
+        this.confirmationService = confirmationService;
+        this.alugaDroneService = alugaDroneService;
+        this.globalService = globalService;
+        this.globalService.usuarioId.subscribe(function (id) { return _this.user_id = id; });
     }
     ShowAlugaDroneComponent.prototype.ngOnInit = function () {
     };
+    ShowAlugaDroneComponent.prototype.removerAlugaDrone = function (drone_id, user_id) {
+        var _this = this;
+        this.confirmationService.confirm({
+            header: 'Remover aluguel',
+            message: 'Deseja mesmo este aluguel?',
+            accept: function () {
+                _this.alugaDroneService.deleteAlugaDrone(drone_id, user_id).then(function () {
+                    _this.msgs = [];
+                    _this.msgs = [{
+                            severity: 'success',
+                            summary: 'Confirmado',
+                            detail: 'Aluguel removido'
+                        }];
+                    location.reload();
+                }, function (err) {
+                    _this.msgs = [];
+                    _this.msgs = [{
+                            severity: 'error',
+                            summary: 'Erro',
+                            detail: 'Não foi possível remover'
+                        }];
+                });
+            },
+            reject: function () {
+                _this.msgs = [{
+                        severity: 'info',
+                        summary: 'Cancelado',
+                        detail: 'Aluguel não removido'
+                    }];
+            }
+        });
+    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Input"])(),
         __metadata("design:type", Array)
     ], ShowAlugaDroneComponent.prototype, "alugaDrones", void 0);
     ShowAlugaDroneComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
             selector: 'app-show-aluga-drone',
             template: __webpack_require__("../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.html"),
             styles: [__webpack_require__("../../../../../src/app/home/show-aluga-drone/show-aluga-drone.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_primeng_components_common_confirmationservice__["ConfirmationService"],
+            __WEBPACK_IMPORTED_MODULE_3__compartilhado_services_aluga_drone_service__["a" /* AlugaDroneService */],
+            __WEBPACK_IMPORTED_MODULE_0__compartilhado_services_global_service__["a" /* GlobalService */]])
     ], ShowAlugaDroneComponent);
     return ShowAlugaDroneComponent;
 }());
@@ -1658,13 +1746,13 @@ var ShowDronesComponent = (function () {
                             summary: 'Confirmado',
                             detail: 'Drone removido'
                         }];
-                    window.location.reload();
+                    location.reload();
                 }, function (err) {
                     _this.msgs = [];
                     _this.msgs = [{
                             severity: 'error',
                             summary: 'Erro',
-                            detail: 'Drone não removido'
+                            detail: 'Não possível remover'
                         }];
                 });
             },
@@ -1769,7 +1857,7 @@ var ShowUsersComponent = (function () {
                     _this.msgs = [{
                             severity: 'error',
                             summary: 'Erro',
-                            detail: 'Usuário não removido'
+                            detail: 'Não foi possível remover'
                         }];
                 });
             },
@@ -2105,9 +2193,13 @@ var NavBarComponent = (function () {
     NavBarComponent.prototype.ngOnInit = function () {
     };
     NavBarComponent.prototype.sair = function () {
-        this.userService.logout().then();
-        location.reload();
-        this.router.navigate(['login']);
+        var _this = this;
+        this.userService.logout().then(function () {
+            _this.router.navigate(['login']);
+            location.reload();
+        }, function (err) {
+            location.reload();
+        });
     };
     NavBarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
