@@ -40,7 +40,7 @@ class DroneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
     }
@@ -53,7 +53,7 @@ class DroneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Drone::create($request->all());
     }
 
     /**
@@ -98,7 +98,7 @@ class DroneController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $drone = Drone::find($id);
+        $drone->delete();
     }
 }
-

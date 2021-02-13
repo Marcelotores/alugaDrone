@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Drone;
 use App\User;
+use App\AlugaDrone;
 
 class AlugaDroneController extends Controller
 {
@@ -32,14 +33,15 @@ class AlugaDroneController extends Controller
 
     }
 
-    public function getAllDronesAlugados() {
-
+    public function getDronesAlugadosByUser($user_id) {
+      $drones = AlugaDrone::where('user_id', $user_id)->get();
+      return $drones;
     }
 
 
     public function index()
     {
-        //
+        return AlugaDrone::all();
     }
 
     /**
@@ -47,9 +49,19 @@ class AlugaDroneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+      $alugaDrone = new AlugaDrone();
+
+      $alugaDrone->drone_id  = $request->drone_id;
+      $alugaDrone->user_id = $request->user_id;
+      $alugaDrone->valor = $request->valor;
+      $alugaDrone->data_inicio = $request->data_inicio;
+      $alugaDrone->data_final = $request->data_final;
+
+      $alugaDrone->save();
+
+      return $alugaDrone;
     }
 
     /**
@@ -60,7 +72,7 @@ class AlugaDroneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return AlugaDrone::create($request->all());
     }
 
     /**
@@ -69,9 +81,10 @@ class AlugaDroneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($drone_id, $user_id)
     {
-        //
+      $drone = AlugaDrone::where('drone_id', $drone_id)->where('user_id', $user_id)->get();
+      return $drone;
     }
 
     /**
@@ -103,8 +116,9 @@ class AlugaDroneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($drone_id, $user_id)
     {
-        //
+      $drone = AlugaDrone::where('drone_id', $drone_id)->where('user_id', $user_id);
+      $drone->delete();
     }
 }
